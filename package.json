@@ -1,0 +1,23 @@
+{
+  "name": "broccoli-splitter",
+  "version": "0.0.1",
+  "description": "A broccoli plugin for splitting file into new files.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mohamnag/broccoli-splitter.git"
+  },
+  "keywords": [
+    "split files",
+    "broccoli-plugin"
+  ],
+  "author": "Mohammad Naghavi <mohamnag@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mohamnag/broccoli-splitter/issues"
+  },
+  "homepage": "https://github.com/mohamnag/broccoli-splitter"
+}
