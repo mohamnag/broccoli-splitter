@@ -19,5 +19,8 @@
   "bugs": {
     "url": "https://github.com/mohamnag/broccoli-splitter/issues"
   },
-  "homepage": "https://github.com/mohamnag/broccoli-splitter"
+  "homepage": "https://github.com/mohamnag/broccoli-splitter",
+  "dependencies": {
+    "broccoli-writer": "^0.1.1"
+  }
 }
