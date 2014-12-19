@@ -5,6 +5,7 @@ var path = require('path');
 var mkdirp = require('mkdirp');
 var includePathSearcher = require('include-path-searcher');
 var Promise = require('rsvp').Promise;
+var fs = require('fs');
 
 module.exports = BroccoliSplitter;
 BroccoliSplitter.prototype = Object.create(CachingWriter.prototype);
@@ -36,7 +37,7 @@ function BroccoliSplitter(inputTrees, options) {
 
 BroccoliSplitter.prototype.debugLog = function() {
     //if (this.options.debug) {
-        console.log.apply(null, arguments);
+    console.log.apply(null, arguments);
     //}
 };
 
@@ -58,8 +59,19 @@ BroccoliSplitter.prototype.updateCache = function(srcDir, destDir) {
         var destFile = path.join(destDir, splitTask.output);
         mkdirp.sync(path.dirname(destFile));
 
+        var stat = fs.lstatSync(inputFile);
+        if (!stat.isFile() && !stat.isSymbolicLink())
+            return;
 
-        // find x between splitTask.from to splitTask.to and copy it to destFile
+        // TODO: both file operations to be replaced with async ops
+        var inputText = fs.readFileSync(inputFile, {encoding: 'utf8'});
+        var startPos = inputText.indexOf(splitTask.from) + splitTask.from.length;
+        var endPos = inputText.indexOf(splitTask.to);
+
+        var foundText = inputText.substring(startPos, endPos);
+        self.debugLog('foundText', foundText);
+
+        fs.writeFileSync(destFile, foundText, {encoding: 'utf8'});
     }
 
 };

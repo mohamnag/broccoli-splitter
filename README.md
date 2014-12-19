@@ -5,12 +5,12 @@ A broccoli plugin for splitting text into new files.
 
 
 ## Sample usage
-Following configuration reads parts of `index.html` from inside `app` directory
+Following configuration reads parts of `index.html` from inside and ember-cli `app` directory
 and creates two PHP files out if it:
 
     var splitHtmlToPHP = brocSplitter(
         [
-            'app'
+            'dist'
         ],
         [
             {
