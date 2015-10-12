@@ -1,6 +1,6 @@
 {
   "name": "broccoli-splitter",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "A broccoli plugin for splitting file into new files.",
   "main": "index.js",
   "scripts": {
