@@ -36,9 +36,9 @@ function BroccoliSplitter(inputTrees, options) {
 }
 
 BroccoliSplitter.prototype.debugLog = function() {
-    //if (this.options.debug) {
-    console.log.apply(null, arguments);
-    //}
+    if (this.options && this.options.debug) {
+        console.log.apply(null, arguments);
+    }
 };
 
 BroccoliSplitter.prototype.updateCache = function(srcDir, destDir) {
